@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     public float StartingSpeed;
+    public float LaunchAngleSpan = 60f;
 
 
     void Start()
@@ -16,13 +17,16 @@ public class Ball : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
 
-        Vector2 startingForce = Random.insideUnitCircle.normalized * StartingSpeed;
+        Vector2 startingForce = getBallLaunchVector(60f * Mathf.Deg2Rad) * StartingSpeed;
+
         rigidBody.AddForce(startingForce);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    Vector2 getBallLaunchVector(float angleSpan)
     {
-        Debug.Log("Ball speed: " + rigidBody.velocity.magnitude);
+        float launchAngle = Random.value * angleSpan - angleSpan / 2;
+
+        return new Vector2(Mathf.Cos(launchAngle), Mathf.Sin(launchAngle));
     }
 }

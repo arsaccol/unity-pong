@@ -152,7 +152,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -369,7 +369,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -645,6 +645,8 @@ GameObject:
   - component: {fileID: 1080276904}
   - component: {fileID: 1080276903}
   - component: {fileID: 1080276902}
+  - component: {fileID: 1080276906}
+  - component: {fileID: 1080276907}
   m_Layer: 0
   m_Name: LeftPaddle
   m_TagString: Untagged
@@ -686,7 +688,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080276901}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -698,7 +700,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!212 &1080276904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -764,6 +766,34 @@ Transform:
   m_Father: {fileID: 1882632639}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080276906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080276901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9860d8ab52a4e414db356078ee2dc621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 10
+  ControlledByAI: 1
+--- !u!114 &1080276907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080276901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e66662d616d84449b6784cfc986b011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 1165004004}
+  SafeDistance: 3
 --- !u!1 &1165004004
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0f7365667329f4b8d45edca121035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingSpeed: 200
+  StartingSpeed: 300
+  LaunchAngleSpan: 60
 --- !u!1 &1557889593
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +942,8 @@ GameObject:
   - component: {fileID: 1557889596}
   - component: {fileID: 1557889595}
   - component: {fileID: 1557889594}
+  - component: {fileID: 1557889598}
+  - component: {fileID: 1557889599}
   m_Layer: 0
   m_Name: RightPaddle
   m_TagString: Untagged
@@ -952,7 +985,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557889593}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -964,7 +997,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!212 &1557889596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1030,6 +1063,34 @@ Transform:
   m_Father: {fileID: 1882632639}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557889598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557889593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9860d8ab52a4e414db356078ee2dc621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 10
+  ControlledByAI: 1
+--- !u!114 &1557889599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557889593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e66662d616d84449b6784cfc986b011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 1165004004}
+  SafeDistance: 3
 --- !u!1 &1639352175
 GameObject:
   m_ObjectHideFlags: 0
