@@ -779,7 +779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
-  ControlledByAI: 1
 --- !u!114 &1080276907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,7 +786,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080276901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e66662d616d84449b6784cfc986b011, type: 3}
   m_Name: 
@@ -1076,7 +1075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
-  ControlledByAI: 1
 --- !u!114 &1557889599
 MonoBehaviour:
   m_ObjectHideFlags: 0

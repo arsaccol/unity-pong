@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     PlayerControls controls;
 
     public float MoveSpeed = 10f;
-    public bool ControlledByAI = false;
     private Rigidbody2D rigidBody;
     // Start is called before the first frame update
 
@@ -20,12 +19,8 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
 
-        if(!ControlledByAI)
-        {
-            controls.Gameplay.Move.performed += ctx => Move(ctx.ReadValue<float>());
-            controls.Gameplay.Move.canceled += ctx => Move(ctx.ReadValue<float>());
-        }
-
+        controls.Gameplay.Move.performed += ctx => Move(ctx.ReadValue<float>());
+        controls.Gameplay.Move.canceled += ctx => Move(ctx.ReadValue<float>());
     }
 
     private void Update() 

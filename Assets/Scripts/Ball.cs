@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -17,16 +15,20 @@ public class Ball : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
 
-        Vector2 startingForce = getBallLaunchVector(60f * Mathf.Deg2Rad) * StartingSpeed;
+        Vector2 startingForce = getBallLaunchVector(60f * Mathf.Deg2Rad, launchToTheLeft: true) * StartingSpeed;
 
         rigidBody.AddForce(startingForce);
     }
 
 
-    Vector2 getBallLaunchVector(float angleSpan)
+    public Vector2 getBallLaunchVector(float angleSpan, bool launchToTheLeft)
     {
         float launchAngle = Random.value * angleSpan - angleSpan / 2;
+        Vector2 launchVector = new Vector2(Mathf.Cos(launchAngle), Mathf.Sin(launchAngle));
 
-        return new Vector2(Mathf.Cos(launchAngle), Mathf.Sin(launchAngle));
+        if(launchToTheLeft)
+            launchVector.x *= -1f;
+
+        return launchVector;
     }
 }
