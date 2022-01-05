@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-        private int playerOneScore = 0;
-        private int playerTwoScore = 0;
+    public GameObject playerOneGoal;
+    public GameObject playerTwoGoal;
     // Start is called before the first frame update
     void Start()
     {
+        Collider2D collider = playerOneGoal.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
