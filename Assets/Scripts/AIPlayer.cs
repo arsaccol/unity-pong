@@ -21,8 +21,6 @@ public class AIPlayer : MonoBehaviour
         //Debug.Log("Vertical distance from ball: " + fromHereToBall.y);
 
         float verticalDistance = fromHereToBall.y;
-        Debug.Log("Vertical distance from ball: " + verticalDistance);
-
 
         float verticalMove = Mathf.Clamp01(verticalDistance) * 2 - 1;
 
