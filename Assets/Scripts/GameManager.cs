@@ -20,13 +20,18 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        InitScoreUI();
+
+        ballComponent = BallObject.GetComponent<Ball>();
+    }
+
+    void InitScoreUI()
+    {
         playerScoresUI[0] = playerScoreUIObject_0.GetComponent<TextMeshProUGUI>();
         playerScoresUI[1] = playerScoreUIObject_1.GetComponent<TextMeshProUGUI>();
 
         playerScoresUI[0].text = playerScores[0].ToString();
         playerScoresUI[1].text = playerScores[1].ToString();
-
-        ballComponent = BallObject.GetComponent<Ball>();
     }
 
     void UpdatePlayerScoreUI(int playerIndex)
@@ -37,7 +42,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void PlayerScored(int playerID)
     {
-        Debug.Log("Player " + playerID + " got scored on");
         playerScores[playerID] += 1;
         UpdatePlayerScoreUI(playerID);
 
@@ -46,5 +50,10 @@ public class GameManager : MonoBehaviour
 
         ballComponent.Reset();
         ballComponent.Launch();
+    }
+
+    bool CheckPlayerVictory(int playerIndex)
+    {
+        return playerScores[playerIndex] >= MaxScore;
     }
 }
