@@ -13,8 +13,17 @@ public class Ball : MonoBehaviour
     void Start()
     {
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        Launch();
+    }
 
+    public void Reset()
+    {
+        transform.position = Vector2.zero;
+        rigidBody.velocity = Vector2.zero;
+    }
 
+    public void Launch()
+    {
         Vector2 startingForce = getBallLaunchVector(60f * Mathf.Deg2Rad, launchToTheLeft: true) * StartingSpeed;
 
         rigidBody.AddForce(startingForce);
