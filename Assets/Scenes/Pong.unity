@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642cc37e4611a5648ac3460b78fd471d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxScore: 5
   playerScoreUIObject_0: {fileID: 1631327691}
   playerScoreUIObject_1: {fileID: 1158131701}
   BallObject: {fileID: 1165004004}

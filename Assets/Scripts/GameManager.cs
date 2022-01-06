@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     int[] playerScores = { 0, 0 };
+
+    public int MaxScore;
 
     public GameObject playerScoreUIObject_0;
     public GameObject playerScoreUIObject_1;
@@ -37,6 +40,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player " + playerID + " got scored on");
         playerScores[playerID] += 1;
         UpdatePlayerScoreUI(playerID);
+
+        if(playerScores[playerID] == MaxScore)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         ballComponent.Reset();
         ballComponent.Launch();
