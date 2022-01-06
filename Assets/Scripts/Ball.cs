@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rigidBody;
 
     public float StartingSpeed;
-    public float LaunchAngleSpan = 60f;
+    public float LaunchAngleSpan = 30f;
 
 
     void Start()
