@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void PlayerScored(int playerID)
     {
-        Debug.Log("Player " + playerID + 1 + " got scored on");
+        Debug.Log("Player " + playerID + " got scored on");
         playerScores[playerID] += 1;
         UpdatePlayerScoreUI(playerID);
 
